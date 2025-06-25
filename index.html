@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form - Pavani</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6f91;
+            --secondary: #fcb69f;
+            --accent: #ffecd2;
+            --white: #fff;
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+            --glass: rgba(255,255,255,0.7);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(120deg, var(--accent) 0%, var(--secondary) 100%);
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #222;
+        }
+        .container {
+            max-width: 700px;
+            margin: 48px auto 32px auto;
+            background: var(--glass);
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+            padding: 48px 36px 36px 36px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+        }
+        .profile-img {
+            display: block;
+            margin: 0 auto 18px auto;
+            border-radius: 50%;
+            border: 7px solid var(--primary);
+            box-shadow: 0 6px 32px #ff6f9180;
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            background: var(--white);
+            transition: transform 0.3s;
+        }
+        .profile-img:hover {
+            transform: scale(1.04) rotate(-2deg);
+            box-shadow: 0 12px 36px #ff6f9190;
+        }
+        .name {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 2.5px;
+            text-shadow: 1px 2px 12px #fff8;
+        }
+        .info-row {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-bottom: 28px;
+        }
+        .info-card {
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            border-radius: 18px;
+            padding: 14px 28px;
+            font-size: 1.13rem;
+            font-weight: 700;
+            box-shadow: 0 2px 16px #ff6f9140;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .info-card i {
+            font-size: 1.35rem;
+            margin-right: 6px;
+        }
+        .info-card:hover {
+            box-shadow: 0 4px 24px #ff6f91a0;
+            transform: translateY(-2px) scale(1.03);
+        }
+        hr {
+            border: none;
+            border-top: 2.5px solid var(--primary);
+            width: 60%;
+            margin: 36px auto 28px auto;
+            opacity: 0.25;
+        }
+        h2 {
+            font-size: 2.1rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            margin-top: 36px;
+            letter-spacing: 1.2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        p {
+            font-size: 1.13rem;
+            color: #333;
+            background: linear-gradient(90deg, #fff8fa 0%, #ffe0e9 100%);
+            border-radius: 16px;
+            padding: 18px 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 1px 10px #ff6f9120;
+            line-height: 1.7;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 12px;
+            margin-bottom: 28px;
+            background: #fff0f6;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px #ff6f9140;
+        }
+        th, td {
+            padding: 15px 20px;
+            text-align: center;
+        }
+        th {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            font-size: 1.13rem;
+            font-weight: 700;
+            border: none;
+            letter-spacing: 0.5px;
+        }
+        td {
+            background: var(--white);
+            color: var(--primary);
+            font-weight: 600;
+            border: none;
+            font-size: 1.08rem;
+        }
+        a {
+            display: inline-block;
+            margin: 10px 0 30px 0;
+            padding: 10px 26px;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+            color: var(--white);
+            border-radius: 28px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.13rem;
+            box-shadow: 0 2px 10px #ff6f9140;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        a:hover {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            transform: scale(1.06);
+            box-shadow: 0 4px 18px #ff6f91a0;
+        }
+        .section {
+            margin-bottom: 36px;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-row {
+            display: flex;
+            justify-content: flex-end;
+            gap: 36px;
+            margin-top: 36px;
+        }
+        .footer-label {
+            font-size: 1.18rem;
+            color: var(--primary);
+            font-weight: 700;
+            background: #fff8fa;
+            border-radius: 12px;
+            padding: 8px 18px;
+            box-shadow: 0 1px 8px #ff6f9120;
+        }
+        /* Decorative background shapes */
+        .bg-shape1, .bg-shape2, .bg-shape3, .bg-shape4 {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.13;
+            pointer-events: none;
+        }
+        .bg-shape1 {
+            top: -90px; left: -90px;
+            width: 240px; height: 240px;
+            background: radial-gradient(circle, var(--primary) 60%, transparent 100%);
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+        .bg-shape2 {
+            bottom: -70px; right: -70px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, var(--secondary) 60%, transparent 100%);
+            border-radius: 50%;
+            filter: blur(1.5px);
+        }
+        .bg-shape3 {
+            top: 70px; right: -50px;
+            width: 130px; height: 130px;
+            background: radial-gradient(circle, var(--accent) 60%, transparent 100%);
+            border-radius: 50%;
+        }
+        .bg-shape4 {
+            bottom: 40px; left: -40px;
+            width: 90px; height: 90px;
+            background: radial-gradient(circle, #fff 60%, transparent 100%);
+            border-radius: 50%;
+        }
+        /* Subtle animated gradient overlay */
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background: linear-gradient(120deg, #fff0 60%, #ffecd2 100%);
+            opacity: 0.09;
+            animation: gradientMove 8s linear infinite alternate;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        /* Responsive Design */
+        @media (max-width: 700px) {
+            .container {
+                padding: 18px 3vw;
+            }
+            .info-row {
+                flex-direction: column;
+                gap: 14px;
+            }
+            .footer-row {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-end;
+            }
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            .name {
+                font-size: 2.1rem;
+            }
+        }
+        /* Elegant bullet list for skills */
+        .skill-list {
+            margin: 0 0 0 18px;
+            padding: 0;
+            list-style: none;
+        }
+        .skill-list li {
+            position: relative;
+            margin-bottom: 10px;
+            padding-left: 22px;
+            font-size: 1.08rem;
+        }
+        .skill-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            box-shadow: 0 1px 4px #ff6f9140;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="gradient-overlay"></div>
+        <div class="bg-shape1"></div>
+        <div class="bg-shape2"></div>
+        <div class="bg-shape3"></div>
+        <div class="bg-shape4"></div>
+        <img src="img1.jpg" alt="Profile Image" class="profile-img">
+        <div class="name">Pavani</div>
+        <div class="info-row">
+            <div class="info-card"><i class="fas fa-envelope"></i> pavanipalu140@gmail.com</div>
+            <div class="info-card"><i class="fas fa-phone"></i> 8297164686</div>
+        </div>
+        <hr>
+        <div class="section">
+            <h2><i class="fas fa-bullseye"></i> Career Objective</h2>
+            <p>
+                Motivated and self-driven Computer Science student specializing in AI &amp; ML, with a strong passion for frontend development and UI/UX design.<br>
+                Seeking to build innovative, user-friendly web applications that combine aesthetics with functionality.<br>
+                Eager to contribute technical and creative skills in HTML, CSS, JavaScript, and design tools to real-world projects while continuously learning and evolving as a full-stack developer.
+            </p>
+        </div>
+        <div class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <table>
+                <tr>
+                    <th>Course</th>
+                    <th>Institute</th>
+                    <th>Year</th>
+                </tr>
+                <tr>
+                    <td>B.Tech</td>
+                    <td>
+                        <a href="http://www.saispurthi.ac.in/" target="_blank">
+                            <i class="fas fa-link"></i> Sai Spurthi
+                        </a>
+                    </td>
+                    <td>2022-2026</td>
+                </tr>
+                <tr>
+                    <td>UG</td>
+                    <td>VKDVS</td>
+                    <td>2020-2022</td>
+                </tr>
+                <tr>
+                    <td>SSC</td>
+                    <td>Jawahar Vidyalayam</td>
+                    <td>2019-2020</td>
+                </tr>
+            </table>
+        </div>
+        <div class="section">
+            <h2><i class="fas fa-comments"></i> Communication Skills</h2>
+            <ul class="skill-list">
+                <li><b>Clear Verbal Communication:</b> I speak confidently during project explanations and presentations.</li>
+                <li><b>Team Collaboration:</b> I coordinate well with teammates in group projects.</li>
+                <li><b>Active Listening:</b> I understand instructions from mentors and act on feedback.</li>
+                <li><b>Empathy in Communication:</b> I care about how others feel.</li>
+                <li><b>Confidence in Sharing Ideas:</b> I am not afraid to ask or share my ideas (I can share designs, errors, and issues openly here).</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2><i class="fas fa-file-signature"></i> Declaration</h2>
+            <p>
+                I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.<br>
+                I take full responsibility for the accuracy of the details mentioned in my resume.
+            </p>
+        </div>
+        <div class="footer-row">
+            <div class="footer-label"><i class="fas fa-calendar-day"></i> Date: <span id="today-date"></span></div>
+            <div class="footer-label"><i class="fas fa-calendar-week"></i> Day: <span id="today-day"></span></div>
+        </div>
+    </div>
+    <script>
+        // Elegant auto-fill for date and day
+        const date = new Date();
+        document.getElementById('today-date').textContent = date.toLocaleDateString();
+        document.getElementById('today-day').textContent = date.toLocaleDateString(undefined, { weekday: 'long' });
+    </script>
+</body>
+</html>
