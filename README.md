@@ -19,6 +19,8 @@ This repository contains a web project featuring:
 - `styles.css` – CSS styling for form background.
 
 ---
+OutPut:
+![Image](https://github.com/user-attachments/assets/733bfa6d-1696-451d-a3a2-2d9ae87e8fc4)
 
 ## 🚀 How to Run
 
